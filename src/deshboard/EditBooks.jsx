@@ -60,7 +60,7 @@ export const EditBooks = () => {
       const description = form.description.value;
       const bookPDFURL = form.BookPDFRUL.value;
       const UpdatebookObj = {bookTitle,authorName,imageURL,category,description,bookPDFURL}
-      // console.log(bookObj)
+      // console.log(bookObj);
 
     //   Upldate a books data in mongodb
     fetch(`http://localhost:5000/book/${id}`,{
