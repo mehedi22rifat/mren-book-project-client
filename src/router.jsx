@@ -61,8 +61,7 @@ import { EditBooks } from "./deshboard/EditBooks";
         ,
         {
           path:'/admin/deshboard/edit-books/:id',
-          element:<EditBooks></EditBooks>,
-          loader:({params}) => fetch(`http://localhost:5000/book/${params.id}`)
+          element:<EditBooks></EditBooks>
         }
       ]
     }

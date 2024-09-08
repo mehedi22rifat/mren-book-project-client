@@ -58,10 +58,11 @@ export const UploadBooks = () => {
         Swal.fire({
             position: "top-end",
             icon: "success",
-            title: "Your work has been saved",
+            title: "Book Upload Successfull",
             showConfirmButton: false,
             timer: 1500
           });
+        form.reset();  
      })
    }
 
@@ -140,7 +141,7 @@ export const UploadBooks = () => {
         {/*  */}
         <div className="w-full">
           <div className="mb-2 block">
-            <Label htmlFor="comment" value="Your message" />
+            <Label htmlFor="comment" value="Descraption" />
           </div>
           <Textarea
             id="bookDescration"
