@@ -11,7 +11,7 @@ const SingleBookCard = () => {
     Category,
   } = useLoaderData();
   return (
-    <div className=" bg-slate-100">
+    <div data-aos="flip-right" className=" bg-slate-100">
       <div className="pt-32">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex flex-col md:flex-row -mx-4">
@@ -36,8 +36,8 @@ const SingleBookCard = () => {
                 </div>
               </div>
             </div>
-            <div className="md:flex-1 px-4">
-              <h2 className="text-2xl font-bold mb-2">Product Name</h2>
+            <div className="md:flex-1 px-4 space-y-7">
+              <h2 className="text-2xl font-bold mb-2">Book Name : <span className="text-2xl font-bold text-blue-500">{bookTitle}</span></h2>
               <p className=" text-sm mb-4">
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed sed
                 ante justo. Integer euismod libero id mauris malesuada
@@ -74,7 +74,7 @@ const SingleBookCard = () => {
               <div className="mt-6">
                 <a className="mt-9" href={bookPDFURL}>
                   <span className="font-bold">Book PDF : </span>
-                  {bookPDFURL}
+                  <span className="hover:underline pb-2" >{bookPDFURL}</span>
                 </a>
 
               </div>

@@ -10,8 +10,8 @@ export const SideBar = () => {
           <Sidebar aria-label="Sidebar with content separator example">
           <Sidebar.Items>
             <Sidebar.ItemGroup>
-            <Sidebar.Logo href="#" img={profileImg} imgAlt="Flowbite logo">
-                Flowbite
+            <Sidebar.Logo href="/" img={profileImg} imgAlt="Flowbite logo">
+                Books
              </Sidebar.Logo>
               <Sidebar.Item href="/admin/deshboard" icon={HiChartPie}>
                 Deshboard

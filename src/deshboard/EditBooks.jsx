@@ -5,17 +5,10 @@ import { useLoaderData, useParams } from 'react-router-dom';
 // import { UploadBooks } from './UploadBooks';
 export const EditBooks = () => {
 
-  const [updateData,setUpldateDate] = useState({});
-  const id = useParams();
-  console.log(id)
-
-  //  useEffect(() =>{
-  //   fetch(`http://localhost:5000/book/${id}`)
-  //   .then(res => res.json())
-  //   .then(data => setUpldateDate(data))
-  //  },[])
-
-   console.log(updateData)
+  const {id} = useParams();
+  // console.log(id)
+ 
+  const {bookTitle,authorName,category,imageURL,bookPDFURL,bookDescription} = useLoaderData()
 
   // const {bookTitle,authorName,category,imageURL,description,bookPDFURL} = useLoaderData();
   // console.log(bookTitle,authorName,category,imageURL,description,bookPDFURL)
@@ -50,41 +43,44 @@ export const EditBooks = () => {
     setSelectBookCategory(event.target.value);
   };
 
-   const handleFromSumbitData = (e) =>{
-    e.preventDefault()
-      const form = e.target;
+   const handleFromSumbitData = (event) =>{
+    event.preventDefault()
+      const form = event.target;
       const bookTitle = form.bookTitle.value;
       const authorName = form.authorName.value;
       const imageURL = form.imageURL.value;
       const category = form.categoryName.value;
-      const description = form.description.value;
+      const bookDescription = form.description.value;
       const bookPDFURL = form.BookPDFRUL.value;
-      const UpdatebookObj = {bookTitle,authorName,imageURL,category,description,bookPDFURL}
-      // console.log(bookObj);
 
-    //   Upldate a books data in mongodb
-    fetch(`http://localhost:5000/book/${id}`,{
-      method:"PATCH",
-      headers:{
-          'Content-type':'application/json'
-      },
-      body:JSON.stringify(UpdatebookObj)
-   })
-   .then(res => res.json())
-   .then(data =>{
-    console.log(data)
-    if (data.matchedCount > 0) {
-      Swal.fire({
-        title: "success!",
-        text: "User Updated Successfull",
-        icon: "success",
-        confirmButtonText: "cool",
-      });
-    }
-   })
+      const updatebookObj = {
+        bookTitle,authorName,imageURL,category,bookDescription,bookPDFURL
+      }
+      
+      // update data
+      fetch(`http://localhost:5000/book/${id}`,{
+        method:'PATCH',
+        headers:{
+          'Content-Type' : 'application/json'
+        },
+        body:JSON.stringify(updatebookObj)
+      })
+      .then(res => res.json())
+      .then(data =>{
+        if(data.modifiedCount > 0){
+          Swal.fire({
+            position: "top-end",
+            icon: "success",
+            title: "Book Update Successfull",
+            showConfirmButton: false,
+            timer: 1500
+          });
+          // form.reset();  
+        }
+      })
 
-  console.log(UpdatebookObj)
-     
+      // form.reset();
+    
    }
 
 
@@ -92,7 +88,7 @@ export const EditBooks = () => {
 
   return (
     <div>
-      <h1 className="text-4xl text-center font-bold my-5">Uplade a book Data</h1>
+      <h1 className="text-4xl text-center font-bold my-10">Uplade a book Data</h1>
       <form onSubmit={handleFromSumbitData} className="flex lg:w-[950px] flex-grow flex-col gap-4">
         <div className="flex gap-5">
           <div className="w-full">
@@ -105,7 +101,7 @@ export const EditBooks = () => {
               id="name"
               type="text"
               placeholder="Book Name"
-              defaultValue={updateData.bookTitle}
+              defaultValue={bookTitle}
               required
               
             />
@@ -121,7 +117,7 @@ export const EditBooks = () => {
               name="authorName"
               type="text"
               placeholder="Author Name"
-              defaultValue={updateData.authorName}
+              defaultValue={authorName}
               required
             />
           </div>
@@ -138,7 +134,7 @@ export const EditBooks = () => {
               id="name"
               type="text"
               placeholder="Book ImageURL"
-              defaultValue={updateData.imageURL}
+              defaultValue={imageURL}
               required
             />
           </div>
@@ -152,7 +148,7 @@ export const EditBooks = () => {
               name="categoryName"
               className="w-full rounded"
               value={selectBookCategory}
-              defaultValue={updateData.category}
+              // defaultValue={category}
               onChange={handleChangeSelectValue}
             >
               {bookCategorys.map((options) => (
@@ -173,7 +169,7 @@ export const EditBooks = () => {
             name="description"
             placeholder="Write your book descraption..."
             className="w-full"
-            defaultValue={updateData.description}
+            defaultValue={bookDescription}
             // value={'Book Descraption'}
             required
             rows={6}
@@ -188,7 +184,7 @@ export const EditBooks = () => {
             className="w-full"
             id="BookPDFURL"
             name="BookPDFRUL"
-            defaultValue={updateData.bookPDFURL}
+            defaultValue={bookPDFURL}
             type="text"
             placeholder="Book PDF URL"
             required

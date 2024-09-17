@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 const ShopCard = ({ book }) => {
   const { imageURL, bookTitle,authorName,description } = book;
   return (
-    <div className="card bg-base-100 w-auto shadow-xl">
+    <div data-aos="zoom-in" className="card bg-base-100 w-auto shadow-xl">
       <figure>
         <Link to={`/book/${book._id}`}>
         <img

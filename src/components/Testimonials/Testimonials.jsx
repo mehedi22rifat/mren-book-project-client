@@ -14,7 +14,8 @@ import TestimonialCard from "./TestimonialCard";
 
 const Testimonials = () => {
   return (
-    <div>
+    <div data-aos="fade-up"
+    data-aos-duration="3000">
        <h1 className="text-center font-bold text-5xl my-10">Our Customers</h1>
       <Swiper
         slidesPerView={1}

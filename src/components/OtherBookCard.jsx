@@ -14,7 +14,7 @@ import { Pagination } from 'swiper/modules';
 import { AiOutlineShoppingCart } from "react-icons/ai";
 import { Link } from 'react-router-dom';
 const OtherBookCard = ({otherBooks,headline}) => {
-    console.log(otherBooks)
+    // console.log(otherBooks)
     return (
         <div className='pb-12'>
          <h1 className='text-5xl text-center font-bold my-14'>{headline}</h1>

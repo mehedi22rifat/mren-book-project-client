@@ -1,7 +1,9 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { Link } from "react-router-dom";
 import './Navbar.css'
 import { FaBookReader } from "react-icons/fa";
+import { authContext } from "../contects/AuthProvider";
+import toast, { Toaster } from "react-hot-toast";
 
 
 
@@ -9,6 +11,23 @@ const Navbar = () => {
 
     const [manu,setManu] = useState('home')
     // const [isSticky,setIsSticky] = useState(false)
+
+    const {user,logout} = useContext(authContext)
+    console.log(user)
+
+    const handleLogout = () =>{
+      logout()
+       .then(result =>{
+        console.log(result)
+        toast.success('Sing Out Successfull')
+       })
+       .catch(error =>{
+        console.log(error)
+        toast.error(error.message)
+       })
+    }
+
+
 
     // useEffect(() =>{
     //     const handleScroll = () =>{
@@ -24,11 +43,11 @@ const Navbar = () => {
     // },[])
     const links = <>
         <Link to={'/'}><li onClick={() =>setManu('home')} className={manu === 'home'?'active':''}><a>Home</a></li></Link>
-        <Link to={'/'}><li onClick={() =>setManu('about')} className={manu ==='about'?'active':''}><a>About</a></li></Link>
         <Link to={'/shop'}><li onClick={() =>setManu('shop')} className={manu ==='shop'?'active':''}><a>Shop</a></li></Link>
-        <Link to={'/'}><li onClick={() =>setManu('sellBook')} className={manu ==='sellBook'?'active':''}><a>Sell Your Book</a></li></Link>
-        <Link to={'/'}><li onClick={() =>setManu('blog')} className={manu ==='blog'?'active':''}><a>Blog</a></li></Link>
-    </>
+        <Link to={'/admin/deshboard'}><li onClick={() =>setManu('sellBook')} className={manu ==='sellBook'?'active':''}><a>Sell Your Book</a></li></Link>
+        <Link to={'/blog'}><li onClick={() =>setManu('blog')} className={manu ==='blog'?'active':''}><a>Blog</a></li></Link>
+        <Link to={'/about'}><li onClick={() =>setManu('about')} className={manu ==='about'?'active':''}><a>About</a></li></Link>
+  </>
     return (
         <div className="">
           <div className="navbar bg-bash-100 fixed bg-blue-300 bg-opacity-30 z-30">
@@ -66,10 +85,19 @@ const Navbar = () => {
      }
     </ul>
   </div>
-  <div className="navbar-end mr-10">
-    <a className="btn bg-blue-600 text-white border-none">Login</a>
+  <div className="navbar-end gap-4 mr-10">
+    {
+      user ? <h1>{user.email}</h1>:""
+    }
+    {
+      user ?
+      <button onClick={handleLogout} className="btn bg-blue-600 text-white border-none">LogOut</button>
+       :
+     <Link to={'singIn'} className="btn bg-blue-600 text-white border-none">LogIn</Link>
+    }
   </div>
 </div>
+<Toaster/>
         </div>
     );
 };

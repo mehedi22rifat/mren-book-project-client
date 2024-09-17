@@ -2,7 +2,8 @@ import favoriteImg from "../assets/favoritebook.jpg";
 
 const FavoriteBook = () => {
   return (
-    <div className="flex flex-col card bg-base-100 shadow-xl p-1  mt-11 mb-10 lg:flex-row md:flex-row gap-10 lg:gap-7 justify-between items-center ">
+    <div data-aos="fade-up"
+    data-aos-duration="3000" className="flex flex-col card bg-base-100 shadow-xl p-1  mt-11 mb-10 lg:flex-row md:flex-row gap-10 lg:gap-7 justify-between items-center ">
       <div>
         <img className="" src={favoriteImg} alt="" />
       </div>

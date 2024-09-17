@@ -1,9 +1,15 @@
 import Slider from "./Slider";
-
+import AOS from "aos";
+import "aos/dist/aos.css"; 
+import { useEffect } from "react";
 
 const Banner = () => {
+  useEffect(() =>{
+    AOS.init()
+  },[])
     return (
-        <div className="lg:h-[500px] md:h-auto h-auto bg-blue-200 w-full">
+        <div data-aos="fade-up"
+        data-aos-duration="3000" className="lg:h-[500px] md:h-auto h-auto bg-blue-200 w-full">
             <div className="py-28 gap-16 flex flex-col lg:flex-row md:flex-row px-10">
             <div className="flex-1">
                <h1 className=" text-3xl lg:text-5xl md:text-5xl font-semibold">Bye and seell your books</h1>

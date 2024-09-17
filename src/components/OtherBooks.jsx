@@ -12,7 +12,8 @@ const OtherBooks = () => {
 
     // console.log(OtherBooks)
     return (
-     <div>
+     <div data-aos="fade-up"
+     data-aos-duration="3000">
       <OtherBookCard otherBooks={otherBooks} headline={'Other Books Here'}></OtherBookCard>
      </div>
       );

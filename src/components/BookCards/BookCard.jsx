@@ -13,8 +13,10 @@ import { Pagination } from 'swiper/modules';
 import { AiOutlineShoppingCart } from "react-icons/ai";
 import { Link } from 'react-router-dom';
 
+
 const BookCard = ({books,headLine}) => {
     const booksIs = books.slice(0,6)
+
     return (
        <div className='pb-12'>
         <h1 className='text-4xl text-center font-bold my-10'>{headLine}</h1>
@@ -42,7 +44,8 @@ const BookCard = ({books,headLine}) => {
         modules={[Pagination]}
         className="mySwiper"
       >
-        <div className='pb-8 card bg-bash-100 shadow-lg'>
+        <div data-aos="fade-up"
+        data-aos-duration="3000" className='pb-8 card bg-bash-100 shadow-lg'>
         {
                 booksIs.map((book)=><SwiperSlide className='bg-bash-100 card shadow-lg' key={book._id}>
                   <Link to={`/book/${book._id}`}>

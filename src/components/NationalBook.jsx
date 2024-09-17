@@ -7,7 +7,8 @@ const NationalBook = () => {
     <div className="">
 
 
-  <div className="container px-6 py-16 mx-auto card bg-bash-100 shadow-lg">
+  <div data-aos="fade-up"
+        data-aos-duration="3000" className="container px-6 py-16 mx-auto card bg-bash-100 shadow-lg">
   <div className="items-center lg:flex">
     <div className="w-full lg:w-1/2">
       <div className="lg:max-w-lg">

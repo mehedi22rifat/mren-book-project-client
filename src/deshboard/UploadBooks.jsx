@@ -55,14 +55,17 @@ export const UploadBooks = () => {
      })
      .then(res => res.json())
      .then(data =>{
+      if(data.acknowledged===true){
         Swal.fire({
-            position: "top-end",
-            icon: "success",
-            title: "Book Upload Successfull",
-            showConfirmButton: false,
-            timer: 1500
-          });
-        form.reset();  
+          position: "top-end",
+          icon: "success",
+          title: "Book Upload Successfull",
+          showConfirmButton: false,
+          timer: 1500
+        });
+      form.reset();  
+      }
+        // form.reset();  
      })
    }
 
@@ -70,7 +73,7 @@ export const UploadBooks = () => {
 
 
   return (
-    <div>
+    <div className="mt-10">
       <h1 className="text-4xl text-center font-bold my-5">Upload a book</h1>
       <form onSubmit={handleFromSumbitData} className="flex lg:w-[950px] flex-grow flex-col gap-4">
         <div className="flex gap-5">
