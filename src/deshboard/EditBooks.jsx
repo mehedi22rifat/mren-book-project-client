@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import Swal from 'sweetalert2';
 import { Button, Checkbox, Label, Select, Textarea, TextInput } from "flowbite-react";
 import { useLoaderData, useParams } from 'react-router-dom';
+import { Helmet } from 'react-helmet-async';
 // import { UploadBooks } from './UploadBooks';
 export const EditBooks = () => {
 
@@ -58,7 +59,7 @@ export const EditBooks = () => {
       }
       
       // update data
-      fetch(`http://localhost:5000/book/${id}`,{
+      fetch(`https://mren-server.vercel.app/book/${id}`,{
         method:'PATCH',
         headers:{
           'Content-Type' : 'application/json'
@@ -88,6 +89,9 @@ export const EditBooks = () => {
 
   return (
     <div>
+      <Helmet>
+            <title>Book Store || Update Book</title>
+          </Helmet>
       <h1 className="text-4xl text-center font-bold my-10">Uplade a book Data</h1>
       <form onSubmit={handleFromSumbitData} className="flex lg:w-[950px] flex-grow flex-col gap-4">
         <div className="flex gap-5">

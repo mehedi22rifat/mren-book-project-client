@@ -46,7 +46,7 @@ export const UploadBooks = () => {
     //   console.log(bookObj)
 
     //   upload books data in mongodb
-     fetch('http://localhost:5000/upload-book',{
+     fetch('https://mren-server.vercel.app/upload-book',{
         method:"POST",
         headers:{
             'Content-type':'application/json'

@@ -1,4 +1,5 @@
 import { useEffect } from "react";
+import { Helmet } from "react-helmet-async";
 
 
 
@@ -10,6 +11,9 @@ const Blog = () => {
     // },[])
     return (
         <div>
+          <Helmet>
+            <title>Book Store || Blog</title>
+          </Helmet>
             <h1 className="text-4xl font-bold text-center pt-24">Our Blog</h1>
            <div data-aos="fade-right"
      data-aos-offset="300"

@@ -1,3 +1,4 @@
+import { Helmet } from "react-helmet-async";
 import Banner from "./components/Banner/Banner";
 import BestSellerBook from "./components/BestSellerBook";
 import DawnloadApp from "./components/DawnloadApp";
@@ -13,6 +14,9 @@ import Testimonials from "./components/Testimonials/Testimonials";
 const Home = () => {
     return (
         <div>
+          <Helmet>
+            <title>Book Store || Home</title>
+          </Helmet>
            <div className="">
             <Banner></Banner>
             <div className="w-[90%] mx-auto">

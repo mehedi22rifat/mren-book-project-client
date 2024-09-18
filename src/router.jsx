@@ -39,7 +39,8 @@ import Blog from "./components/Blog";
         {
           path:'/book/:id',
           element:<PrivateRoute><SingleBookCard></SingleBookCard></PrivateRoute>,
-          loader:({params}) => fetch(`http://localhost:5000/book/${params.id}`)
+          loader:({params}) => fetch(`https://mren-server.vercel.app/book/${params.id}`)
+          // https://mren-server.vercel.app/
         },{
           path:'shop',
           element:<Shop></Shop>
@@ -76,16 +77,16 @@ import Blog from "./components/Blog";
         {
           path:'/admin/deshboard/edit-books/:id',
           element:<EditBooks></EditBooks>,
-          loader:({params}) => fetch(`http://localhost:5000/book/${params.id}`)
+          loader:({params}) => fetch(`https://mren-server.vercel.app/book/${params.id}`)
         }
       ]
     },
     {
-      path:'singUp',
+      path:'/singUp',
       element:<SingUp></SingUp>
     },
     {
-      path:'singIn',
+      path:'/singIn',
       element:<SingIn></SingIn>
     }
   ]);

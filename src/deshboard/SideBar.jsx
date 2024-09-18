@@ -4,6 +4,7 @@ import { BiBuoy } from "react-icons/bi";
 import { HiArrowSmRight, HiChartPie, HiCloudUpload, HiInbox, HiShoppingBag, HiTable, HiUpload, HiUser, HiViewBoards } from "react-icons/hi";
 
 import profileImg from '../assets/profile.jpg'
+
 export const SideBar = () => {
     return (
       <div className='h-screen'>
@@ -42,8 +43,8 @@ export const SideBar = () => {
               <Sidebar.Item href="#" icon={HiViewBoards}>
                 Documentation
               </Sidebar.Item>
-              <Sidebar.Item href="#" icon={BiBuoy}>
-                Help
+              <Sidebar.Item href="/" icon={BiBuoy}>
+                Home
               </Sidebar.Item>
             </Sidebar.ItemGroup>
           </Sidebar.Items>

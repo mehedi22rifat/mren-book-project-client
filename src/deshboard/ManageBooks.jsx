@@ -2,18 +2,21 @@ import React, { useEffect, useState } from 'react'
 import { Table } from "flowbite-react";
 import { Link } from 'react-router-dom';
 import Swal from 'sweetalert2';
+
+
+
 export const ManageBooks = () => {
   const [manageBook,setManageBook] = useState([])
   
   useEffect(() =>{
-    fetch('http://localhost:5000/all-books')
+    fetch('https://mren-server.vercel.app/all-books')
     .then(res=> res.json())
     .then(data => setManageBook(data))
   },[])
 
   // delete a book
  const handleDeleteBook = (id) =>{
-     fetch(`http://localhost:5000/book/${id}`,{
+     fetch(`https://mren-server.vercel.app/book/${id}`,{
       method:"DELETE",
      })
      .then(res => res.json())
@@ -30,6 +33,7 @@ export const ManageBooks = () => {
 
   return (
     <div>
+      <div>
       <h1 className='text-4xl font-bold text-center mt-5'>Manage your books</h1>
     <div className="overflow-x-auto w-full">
       <Table className='lg:w-[950px] mt-10'>
@@ -66,6 +70,7 @@ export const ManageBooks = () => {
          }
         </Table.Body>
       </Table>
+    </div>
     </div>
     </div>
   );

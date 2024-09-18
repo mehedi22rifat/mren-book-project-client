@@ -6,6 +6,7 @@ import toast, { Toaster } from "react-hot-toast";
 import { useLocation, useNavigate } from "react-router-dom";
 import AOS from "aos";
 import "aos/dist/aos.css"; 
+import { Helmet } from "react-helmet-async";
 
 
 const SingIn = () => {
@@ -63,6 +64,10 @@ const handleSingUpWithGoolge = () =>{
 
     return (
      <div>
+      <Helmet>
+            <title>Book Store || SingIn</title>
+     </Helmet>
+ <div>
  <div data-aos="zoom-in" className="min-h-screen bg-gray-100 py-6 flex flex-col justify-center sm:py-12">
   <div className="relative py-3 sm:max-w-xl sm:mx-auto">
     <div className="absolute inset-0 bg-gradient-to-r from-cyan-400 to-sky-500 shadow-lg transform -skew-y-6 sm:skew-y-0 sm:-rotate-6 sm:rounded-3xl">
@@ -127,6 +132,7 @@ const handleSingUpWithGoolge = () =>{
 </div>
 <Toaster/>
 
+ </div>
 </div>
 
     );

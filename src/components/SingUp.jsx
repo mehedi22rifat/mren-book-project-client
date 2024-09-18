@@ -4,6 +4,7 @@ import toast, { Toaster } from 'react-hot-toast';
 import { useLocation, useNavigate } from "react-router-dom";
 import AOS from "aos";
 import "aos/dist/aos.css"; 
+import { Helmet } from "react-helmet-async";
 
 const SingUp = () => {
   const { registerUser,singInWithGoogle, loginUser,loading,user } = useContext(authContext);
@@ -68,6 +69,9 @@ const SingUp = () => {
 
   return (
     <div>
+      <Helmet>
+            <title>Book Store || SingUp</title>
+          </Helmet>
       <div data-aos="zoom-in-down" className="min-h-screen bg-gray-100 text-gray-900 flex justify-center">
         <div className="max-w-screen-xl m-0 sm:m-10 bg-white shadow sm:rounded-lg flex justify-center flex-1">
           <div className="flex-1 bg-indigo-100 text-center hidden lg:flex">

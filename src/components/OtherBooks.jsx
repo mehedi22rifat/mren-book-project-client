@@ -5,7 +5,7 @@ import OtherBookCard from './OtherBookCard';
 const OtherBooks = () => {
   const [otherBooks,setOtherBooks] = useState([]);
     useEffect(() =>{
-      fetch('http://localhost:5000/all-books')
+      fetch('https://mren-server.vercel.app/all-books')
       .then(res => res.json())
       .then(data => setOtherBooks(data.slice(6,14)))
     },[])

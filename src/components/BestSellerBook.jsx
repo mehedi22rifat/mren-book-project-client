@@ -15,7 +15,7 @@ const BestSellerBook = () => {
     },[])
 
     useEffect(() =>{
-        fetch('http://localhost:5000/all-books')
+        fetch('https://mren-server.vercel.app/all-books')
         .then(res => res.json())
         .then(data => setBooks(data))
     },[])

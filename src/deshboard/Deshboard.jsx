@@ -1,3 +1,4 @@
+import { Helmet } from 'react-helmet-async';
 import { Typewriter } from 'react-simple-typewriter'
 
 const Deshboard = () => {
@@ -6,7 +7,9 @@ const Deshboard = () => {
     console.log(`Done after 5 loops!`)
   }
     return (
-        <div className="text-center ml-48">
+       <div>
+         <div className="text-center ml-48">
+
           <h1 style={{ paddingTop: '5rem', margin: 'auto 0', fontWeight: 'normal' }} className="text-center mt-28 text-4xl font-bold text-blue-600">
           <span style={{ color: 'red', fontWeight: 'bold' }}>
           {/* Style will be inherited from the parent element */}
@@ -24,6 +27,7 @@ const Deshboard = () => {
 
           </h1>
         </div>
+       </div>
     );
 };
 

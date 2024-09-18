@@ -10,7 +10,7 @@ const Banner = () => {
     return (
         <div data-aos="fade-up"
         data-aos-duration="3000" className="lg:h-[500px] md:h-auto h-auto bg-blue-200 w-full">
-            <div className="py-28 gap-16 flex flex-col lg:flex-row md:flex-row px-10">
+            <div className="py-28 lg:gap-16 gap-9 flex flex-col lg:flex-row md:flex-row lg:px-10 md:px-5 px-5">
             <div className="flex-1">
                <h1 className=" text-3xl lg:text-5xl md:text-5xl font-semibold">Bye and seell your books</h1>
                <h1 className="text-blue-600 font-bold text-3xl lg:text-4xl xl:text-4x mt-1">for the best prices</h1>
